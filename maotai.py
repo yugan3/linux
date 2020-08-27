@@ -63,3 +63,7 @@ query_maotai_orders = '''select o.id, t.created_at::timestamp without time zone,
 '''
 df2 = pd.read_sql(query_maotai_orders, postgre_engine)
 df2.to_sql('maotai_orders', con = postgre_engine, if_exists = 'append', index = False)
+
+
+# linux crontab -e
+# 45 8 * * * ~/anaconda3/bin/python3 /opt/ganyu/maotai.py >> /opt/ganyu/maotai1.log 2>&1
